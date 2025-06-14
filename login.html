@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    #login {
+      width: 350px;
+      height: 350px;
+      background-color: white;
+      border: 1px solid black;
+      padding-left: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 9%;
+    }
+  </style>
+</head>
+<body bgcolor="lightblue">
+
+  <div id="login">
+    <br>
+    <h1><center>LOGIN PAGE</center></h1>
+    <br>
+    <form onsubmit="return Validate()" method="post">
+      Username: <input type="text" id="name" placeholder="username"><br><br>
+      
+      Password: <input type="password" id="password" placeholder="password"><br><br>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </div>
+
+  <script>
+    function Validate() {
+      const name = document.getElementById("name").value;
+     
+      const password = document.getElementById("password").value;
+
+      if (name === "") {
+        alert("Username is must");
+        return false;
+      }
+       var lettersOnly = /^[A-Za-z]+$/;
+      if (!lettersOnly.test(name)) {
+        alert("Username must contain only letters (no numbers or symbols)");
+        return false;
+     }
+
+
+      
+      
+
+      if (name.length < 6) {
+        alert("Username must be at least 6 characters long");
+        return false;
+      }
+
+      
+
+      if (password === "") {
+        alert("Password is must");
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long");
+        return false;
+      }
+
+      alert("Login successful!");
+      return true;
+      
+    }
+  </script>
+
+</body>
+</html>

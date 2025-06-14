@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrartion Page</title>
+    <style>
+        #div1{
+            width: 350px;
+      height: 450px;
+      background-color: white;
+      border: 1px solid black;
+      padding-left: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 9%;
+      
+        }
+    </style>
+</head>
+<body bgcolor="lightpink">
+    <div id="div1">
+        <h1>Registration </h1>
+        <form onsubmit="return validateForm()">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="Address">Address</label><br>
+            <input type="text" id="Address" name="Address" required><br><br>
+            <label for="phone">Phone:</label><br>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            <label for="DOB">Date Of Birth</label>
+            <input type="date" id="DOB" name="DOB" required><br><br>
+            <label for="Gender">Gender</label>
+            <input type="radio">MALE <input type="radio">FEMALE <br><br>
+
+
+
+            <button type="submit">Register</button>
+        </form>
+
+    </div>
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const address = document.getElementById("Address").value;
+            const phone = document.getElementById("phone").value;
+            const dob = document.getElementById("DOB").value;
+
+            if (name === "" || email === "" || address === "" || phone === "" || dob === "") {
+                alert("All fields are required.");
+                return false;
+            }
+
+            if (!/^[a-zA-Z]+$/.test(name)) {
+                alert("Name must contain only letters.");
+                return false;
+            }
+
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Phone number must be 10 digits.");
+                return false;
+            }
+
+            alert("Registration successful!");
+            return true;
+        }
+    </script>
+    
+</body>
+</html>
